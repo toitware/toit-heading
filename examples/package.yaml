@@ -1,0 +1,6 @@
+dependencies:
+  heading:
+    path: ..
+  lsm303dlhc:
+    url: github.com/toitware/toit-lsm303dlhc
+    version: ^1.0.0
