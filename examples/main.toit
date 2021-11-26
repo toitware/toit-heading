@@ -7,14 +7,15 @@ import i2c
 import lsm303dlhc show *
 import math
 import device show FlashStore
+import heading show *
 
 BASE_VECTOR ::= math.Point3f 1.0 0.0 0.0
 
 main:
   store := FlashStore
   bus := i2c.Bus
-    --sda=gpio.Pin 21
-    --scl=gpio.Pin 22
+      --sda=gpio.Pin 21
+      --scl=gpio.Pin 22
 
   calibration := (FlashStore).get "mag-calibration"
   if not calibration: calibration = [0, 0, 0]

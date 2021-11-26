@@ -4,7 +4,7 @@
 
 import gpio
 import i2c
-import lsm303dlh show *
+import lsm303dlhc show *
 import device show FlashStore
 
 /**
@@ -24,8 +24,8 @@ The calibration settings are stored in the flash with the key
 main:
   store := FlashStore
   bus := i2c.Bus
-    --sda=gpio.Pin 21
-    --scl=gpio.Pin 22
+      --sda=gpio.Pin 21
+      --scl=gpio.Pin 22
 
   device := bus.device Magnetometer.I2C_ADDRESS
   magnetometer := Magnetometer device
