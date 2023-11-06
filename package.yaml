@@ -1,1 +1,2 @@
-# Toit Package File.
+name: heading
+description: Compute the heading given the acceleration and magnetic field.
