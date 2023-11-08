@@ -6,18 +6,18 @@ import gpio
 import i2c
 import lsm303dlhc show *
 import math
-import device show FlashStore
+import system.storage
 import heading show *
 
 BASE_VECTOR ::= math.Point3f 1.0 0.0 0.0
 
 main:
-  store := FlashStore
+  bucket := storage.Bucket.open --flash "toitware/toit-heading"
   bus := i2c.Bus
       --sda=gpio.Pin 21
       --scl=gpio.Pin 22
 
-  calibration := (FlashStore).get "mag-calibration"
+  calibration := bucket.get "mag-calibration"
   if not calibration: calibration = [0, 0, 0]
 
   magnetometer := Magnetometer (bus.device Magnetometer.I2C_ADDRESS)
